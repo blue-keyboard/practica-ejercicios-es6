@@ -1,23 +1,45 @@
-// Dado el siguiente javascript, utiliza .filter() para mostrar por consola
-// los streamers que incluyan la palabra introducida en el input. De esta forma, si
-// introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si
-// introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
-const streamers = [
-   { name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft' },
-   { name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends' },
-   { name: 'Reven', age: 43, gameMorePlayed: 'League of Legends' },
-   { name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us' }
+// 6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
+const numbers = [32, 21, 63, 95, 100, 67, 43]
+
+console.log(numbers.find((number) => number === 100))
+
+// 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
+const movies = [
+   { title: 'Madagascar', stars: 4.5, date: 2015 },
+   { title: 'Origen', stars: 5, date: 2010 },
+   { title: 'Your Name', stars: 5, date: 2016 }
 ]
 
-const input = document.querySelector('input[data-function="toFilterStreamers"]')
+console.log(movies.find((movie) => movie.date === 2010))
 
-const logFilteredStreamers = (event) => {
-   const search = event.target.value
-   const newFilteredStreamersArray = streamers
-      .filter((streamer) => streamer.name.includes(search))
-      .map((streamer) => streamer.name)
+// 6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre
+// 'Cucushumushu' y la mutación 'Porompompero'. Una vez que los encuentres, usa
+// spread operator para fusionarlos teniendo en cuenta que el objeto de la mutación
+// lo queremos meter en la propiedad .mutation del objeto fusionado.
+const aliens = [
+   { name: 'Zalamero', planet: 'Eden', age: 4029 },
+   { name: 'Paktu', planet: 'Andromeda', age: 32 },
+   { name: 'Cucushumushu', planet: 'Marte', age: 503021 }
+]
+const mutations = [
+   {
+      name: 'Porompompero',
+      description:
+         'Hace que el alien pueda adquirir la habilidad de tocar el tambor'
+   },
+   {
+      name: 'Fly me to the moon',
+      description: 'Permite volar, solo y exclusivamente a la luna'
+   },
+   {
+      name: 'Andando que es gerundio',
+      description: 'Invoca a un señor mayor como Personal Trainer'
+   }
+]
 
-   console.log(...newFilteredStreamersArray)
+const alienFusion = {
+   ...aliens.find((alien) => alien.name === 'Cucushumushu'),
+   mutation: mutations.find((mutation) => (mutation.name = 'Porompompero'))
 }
 
-input.addEventListener('input', logFilteredStreamers)
+console.log(alienFusion)
