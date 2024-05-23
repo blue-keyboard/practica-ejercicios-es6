@@ -14,8 +14,8 @@ const videogames = [
    { name: 'Legend of Zelda: Breath of the wild', genders: ['RPG'], score: 10 }
 ]
 
-const meanOffilteredGames = videogames
+const meanfilteredGames = videogames
    .filter((vg) => vg.genders.includes('RPG'))
    .reduce((acc, vg, i, array) => acc + vg.score / array.length, 0)
 
-console.log(meanOffilteredGames)
+console.log(meanfilteredGames)
